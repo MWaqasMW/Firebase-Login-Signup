@@ -23,7 +23,7 @@
 
 
   let btn = document.getElementById("button");
-  btn.addEventListener("click", ()=>{
+  btn.addEventListener ("click", async()=>{
  
    let  email = document.getElementById("user-email")
   let   password = document.getElementById("password")
@@ -39,6 +39,9 @@ let userData ={
     
  
 }
+
+
+
 
 createUserWithEmailAndPassword(auth, userData.email, userData.password)
   .then( async(userCredential) => {
@@ -67,17 +70,21 @@ createUserWithEmailAndPassword(auth, userData.email, userData.password)
 
 
 
+// let getAlluser=async()=>{
+//   const querySnapshot = await getDocs(collection(db, "users"));
+// querySnapshot.forEach((doc) => {
+//   console.log(`${user.id} =>` , doc.data());
+// });
+// }
 
-let getAlluser=async()=>{
-  const querySnapshot = await getDocs(collection(db, "users"));
-querySnapshot.forEach((doc) => {
-  console.log(`${user.id} =>` , doc.data());
-});
+
+
+// getAlluser();
 }
 
-getAlluser();
 
-})
+
+)
 // signInWithEmailAndPassword(auth, userData.email,userData.password)
 //   .then  ( async(userCredential) => {
     
