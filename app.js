@@ -1,5 +1,6 @@
 
 
+
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
 
   import { getAuth ,createUserWithEmailAndPassword ,signInWithEmailAndPassword, } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
@@ -38,7 +39,21 @@ let userData ={
  password:password.value,
     
  
-}
+  }
+  })
+// let loginBtn = document.getElementById("loginBtn")
+// let signupBtn = document.getElementById("signupBtn")
+let signup = document.getElementById("signup")
+let login = document.getElementById("login")
+
+
+ 
+
+ 
+
+
+let signupCall=()=>{
+
 
 
 
@@ -48,7 +63,7 @@ createUserWithEmailAndPassword(auth, userData.email, userData.password)
    
     const user = userCredential.user;
     try {
-      await setDoc(doc(db, "cities", user.uid), {
+      await setDoc(doc(db, "users", user.uid), {
      ...userData,
      user:user.uid
       });
@@ -64,8 +79,33 @@ createUserWithEmailAndPassword(auth, userData.email, userData.password)
    console.log("errorMessage",errorMessage );
   });
 
+}
 
 
+
+
+
+
+
+
+let loginCall =()=>{
+
+  
+
+signInWithEmailAndPassword(auth, userData.email,userData.password)
+  .then ( async(userCredential) => {
+
+  await  userData.email,userData.password
+console.log("user",user)
+  })
+  .catch((error) => {
+
+    const errorMessage = error.message;
+
+    console.log("errorMessage",errorMessage)
+  });
+
+}
 
 
 
@@ -80,63 +120,7 @@ createUserWithEmailAndPassword(auth, userData.email, userData.password)
 
 
 // getAlluser();
-}
 
 
 
-)
-// signInWithEmailAndPassword(auth, userData.email,userData.password)
-//   .then  ( async(userCredential) => {
-    
-//     const user = userCredential.user;
-// console.log("user",user)
-//   })
-//   .catch((error) => {
-
-//     const errorMessage = error.message;
-
-//     console.log("errorMessage",errorMessage)
-//   });
-
-
-
-
-
-
-
-
-// const Wheather =async()=>{
-
-//  const  karachi = ()=>{
   
-//   new Promise((resolve, reject) => {
-//       setTimeout(()=>{
-       
-//         console.log("30'C ")
-//   }, 6000)
-//     })
-    
-  
-// }
-// const  lahore =()=>{
-  
-//   new Promise((resolve, reject) => {
-//       setTimeout(()=>{
-        
-//         console.log("30'C")
-//   }, 2000)
-//     })
-    
-  
-// }
-// let karachiW= await karachi
-// console.log("please wait karachi",karachiW)
-
-// let lahoreW= await lahore
-// console.log("please wait karachi",lahoreW)
-
-// }
-
-
-// let a=Wheather()
-// console.log(a)

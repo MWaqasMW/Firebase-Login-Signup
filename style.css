@@ -1,34 +1,53 @@
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url(images/photo-1553095066-5014bc7b7f2d.jpg);
+  background-size: cover;
+
+  height: 100vh;
+  color: aliceblue;
+ 
+}
+
+
+.main{
+  display: flex;
+  justify-content: center;
+ align-items: center;
+ height: 100vh;
+}
+
+
+
+
+
+
+
 .form_main {
-  margin: 0% auto;
-    width: 220px;
+  border-radius: 5px;
+  padding: 2rem 1rem;
+background-color: #36454f;
+    width: 350px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgb(255, 255, 255);
-    padding: 30px 30px 30px 30px;
-    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.062);
-    position: relative;
-    overflow: hidden;
+  
   }
   
   .form_main::before {
-    position: absolute;
-    content: "";
+    
     width: 300px;
     height: 300px;
-    background-color: rgb(209, 193, 255);
-    transform: rotate(0deg);
-    left: 0px;
-    bottom: 10px;
-    z-index: 1;
-    ;
-    box-shadow: 5px 5px 10px rgba(25, 242, 242, 0.082);
+  
+
   }
   
   .heading {
     font-size: 2em;
-    color: #694444;
+    color: #ceacac;
     font-weight: 700;
     margin: 5px 0 10px 0;
     z-index: 2;
@@ -55,8 +74,8 @@
     border: none;
     border-bottom: 2px solid rgb(173, 173, 173);
     margin: 10px 0;
-    color: black;
-    font-size: .8em;
+    color: #fff;
+    font-size: 1.2em;
     font-weight: 500;
     box-sizing: border-box;
     padding-left: 30px;
@@ -68,8 +87,8 @@
   }
   
   .inputField::placeholder {
-    color: rgb(80, 80, 80);
-    font-size: 1em;
+    color: #ceacac;
+    font-size: 0.9em;
     font-weight: 500;
   }
   
@@ -81,7 +100,7 @@
     background-color: rgb(162, 104, 255);
     height: 30px;
     color: white;
-    font-size: .8em;
+    font-size: .9em;
     font-weight: 500;
     letter-spacing: 1px;
     margin: 10px;
@@ -96,10 +115,18 @@
     z-index: 2;
     font-size: .7em;
     font-weight: 500;
-    color: rgb(44, 24, 128);
+    color: #ceacac;
     text-decoration: none;
     padding: 8px 15px;
     border-radius: 20px;
   }
   
   
+  /* index.html file */
+
+  .my-card{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+  }
