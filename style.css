@@ -92,7 +92,7 @@ background-color: #36454f;
     font-weight: 500;
   }
   
-  #button {
+  .btn {
     z-index: 2;
     position: relative;
     width: 100%;
@@ -107,7 +107,7 @@ background-color: #36454f;
     cursor: pointer;
   }
   
-  #button:hover {
+  .btn:hover {
     background-color: rgb(126, 84, 255);
   }
   
