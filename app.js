@@ -1,135 +1,138 @@
 
-
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
-
-import { getAuth ,createUserWithEmailAndPassword ,signInWithEmailAndPassword, } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
-
-// import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-analytics"
-import { getFirestore , collection, addDoc ,getDocs ,doc, setDoc } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
-const firebaseConfig = {
-  apiKey: "AIzaSyAsSTcbkHHbXnnsbFv2GIfp1Q9JrN-bPmY",
-  authDomain: "chat-app-772e5.firebaseapp.com",
-  projectId: "chat-app-772e5",
-  storageBucket: "chat-app-772e5.appspot.com",
-  messagingSenderId: "594972580748",
-  appId: "1:594972580748:web:e6c53f4e1009d9106994a9",
-  measurementId: "G-D44KEDY6EX"
-};
-
-
-const app = initializeApp(firebaseConfig);
-
-const auth = getAuth(app);
-// const analytics = getAnalytics(app);
-const db = getFirestore(app);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  let signupBtn = document.getElementById("signUp");
- signupBtn &&  signupBtn.addEventListener ("click", async()=>{
  
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+  import { getFirestore,collection, addDoc,doc, setDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyCD03uh2aQWGYB1IsZh1o7zjV0DxLrCSMw",
+    authDomain: "login-signup-9fca4.firebaseapp.com",
+    projectId: "login-signup-9fca4",
+    storageBucket: "login-signup-9fca4.appspot.com",
+    messagingSenderId: "485276283878",
+    appId: "1:485276283878:web:8ae6c7c7de45b8cfda9c27"
+  };
 
-  let  email = document.getElementById("user-email")
-  let  password = document.getElementById("password")
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+
+
+
+
+   let signupBtn = document.getElementById("signUp");
+  signupBtn &&  signupBtn.addEventListener ("click", async(e)=>{
+   let  email = document.getElementById("user-email")
+   let  password = document.getElementById("password")
    let  phone = document.getElementById("user-number")
   let  user = document.getElementById("user-name")
 
 
-let userData ={
-  user:user.value,
+   let userData ={
+   user:user.value,
   phone: phone.value,
-  email :  email.value ,
- password:password.value,
-    
- 
-}
-
+   email :  email.value ,
+  password:password.value,
+   }
 
 createUserWithEmailAndPassword(auth, userData.email, userData.password)
   .then( async(userCredential) => {
-   
+    // Signed in 
     const user = userCredential.user;
+
     try {
-      await setDoc(doc(db, "users", user.uid), {
-     ...userData,
-     user:user.uid
-     
+         await setDoc(doc(db, "users", user.uid), {
+        ...userData,
+        uid:user.uid
+           
+          
+         });
     
-      });
-      Swal.fire({
-        icon: 'success',
-        title: 'User register successfully',
-    })
-      localStorage.setItem("userId",user.uid)
-      location.href="index.html"
-      // console.log("Document written with ID: ", docRef.id);
-      console.log("added")
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    }
-  })
-  .catch((error) => {
- 
-    const errorMessage = error.message;
-   console.log("errorMessage",errorMessage );
-  });
+         localStorage.setItem("userId",user.uid ,)
+         location.href="index.html"
+         // console.log("Document written with ID: ", docRef.id);
+         console.log("added")
+       } catch (e) {
+         console.error("Error adding document: ", e);
+           }
+     })
+         .catch((error) => {
+       
+           const errorMessage = error.message;
+         console.log("errorMessage",errorMessage );
+         })
+
+        })
 
 
 
+ let loginBtn = document.getElementById("loginBtn")
+  loginBtn.addEventListener("click", ()=>{
+   let  email = document.getElementById("user-email")
+   let  password = document.getElementById("password")
 
-
-
-
-
-
-
-
-
+   
+signInWithEmailAndPassword(auth, email.value, password.value)
+  .then((userCredential) => {
   
-
-
-
-
-let loginBtn = document.getElementById("loginBtn")
-signInWithEmailAndPassword(auth, userData.email,userData.password)
-  .then ( async(userCredential) => {
-
-  await  userData.email,userData.password
-console.log("user",user)
+    const user = userCredential.user;
+  try {
+console.log("welcome to my website")
+  localStorage.setItem("uid", user.uid)
+   location.href = "signup.html"
+} catch (err) {   console.log(err)
+}
   })
   .catch((error) => {
 
-    const errorMessage = error.message;
-
-    console.log("errorMessage",errorMessage)
+    console.log("error.message",error.message)
   });
 
-
-// let getAlluser=async()=>{
-//   const querySnapshot = await getDocs(collection(db, "users"));
-// querySnapshot.forEach((doc) => {
-//   console.log(`${user.id} =>` , doc.data());
-// });
-// }
-
-
-
-// getAlluser();
 
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// })
+
   
