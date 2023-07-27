@@ -2,16 +2,16 @@
  
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
-  import { getFirestore,collection, addDoc,doc, setDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+  import { getFirestore,collection, addDoc,doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
   
   
   const firebaseConfig = {
-    apiKey: "AIzaSyB4-JhzEvKmE8ev_x31erz0I41sFSTT_gs",
-    authDomain: "login-signup-1-ed864.firebaseapp.com",
-    projectId: "login-signup-1-ed864",
-    storageBucket: "login-signup-1-ed864.appspot.com",
-    messagingSenderId: "561497871619",
-    appId: "1:561497871619:web:6c75f55d438d10cf370536"
+    apiKey: "AIzaSyCD03uh2aQWGYB1IsZh1o7zjV0DxLrCSMw",
+    authDomain: "login-signup-9fca4.firebaseapp.com",
+    projectId: "login-signup-9fca4",
+    storageBucket: "login-signup-9fca4.appspot.com",
+    messagingSenderId: "485276283878",
+    appId: "1:485276283878:web:8ae6c7c7de45b8cfda9c27"
   };
 
   // Initialize Firebase
@@ -20,11 +20,21 @@
   const db = getFirestore(app);
 
 
+  let loader =document.getElementById("loader")
+
+        let showloder=()=>{
+          loader.style.display = "block";
+        }
+        
+        let hideloder=()=>{
+          loader.style.display = "none";
+        }
 
 
 
    let signupBtn = document.getElementById("signUp");
-  signupBtn &&  signupBtn.addEventListener ("click", async(e)=>{
+  signupBtn &&  signupBtn.addEventListener ("click", ()=>{
+    showloder()
    let  email = document.getElementById("user-email")
    let  password = document.getElementById("password")
    let  phone = document.getElementById("user-number")
@@ -38,67 +48,78 @@
   password:password.value,
    }
 
+
+   
+
 createUserWithEmailAndPassword(auth, userData.email, userData.password)
   .then( async(userCredential) => {
-    // Signed in 
+    hideloder()
     const user = userCredential.user;
 
+    try {
          await setDoc(doc(db, "users", user.uid), {
         ...userData,
         uid:user.uid
            
           
          });
-      ;
     
          localStorage.setItem("userId",user.uid ,)
          location.href="index.html"
-        
+         // console.log("Document written with ID: ", docRef.id);
          console.log("added")
-   
+       } catch (e) {
+         console.error("Error adding document: ", e);
+         swal({
+          title: "Opps",
+          text: e,
+         
+        });
+           }
      })
          .catch((error) => {
-       
+          hideloder()
            const errorMessage = error.message;
-         console.log("errorMessage",errorMessage );
+           sweetAlert("Oops...", error.message, "error" );
          })
 
         })
 
-
-
+      
  let loginBtn = document.getElementById("loginBtn")
  loginBtn && loginBtn.addEventListener("click", ()=>{
+ showloder()
    let  email = document.getElementById("user-email")
    let  password = document.getElementById("password")
 
-   
+
 signInWithEmailAndPassword(auth, email.value, password.value)
-  .then((userCredential) => {
-  
+  .then(async(userCredential) => {
+  await hideloder()
     const user = userCredential.user;
   try {
 console.log("welcome to my website")
-
   localStorage.setItem("uid", user.uid)
-
-  swal({
-    title: "Congratulations",
-    text: "Login is Successful",
-    imageUrl: "Welcome to my website"
-  })
+  
 } catch (err) {   console.log(err)
+
 }
+swal({
+  title: "Congratulations",
+  text: "Login is succesfully",
+ 
+});
+
+email.value="";
+password.value="";
   })
   .catch((error) => {
-
+    hideloder()
     console.log("error.message",error.message)
+    sweetAlert("Oops...", error.message, "error" );
   });
 
-
-
 })
-
 
 
 

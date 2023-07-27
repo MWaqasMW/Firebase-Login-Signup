@@ -2,11 +2,11 @@ body{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-image: url(images/photo-1553095066-5014bc7b7f2d.jpg);
-  background-size: cover;
+background-color:#667682;
 
   height: 100vh;
-  color: aliceblue;
+
+
  
 }
 
@@ -28,7 +28,7 @@ body{
 .form_main {
   border-radius: 5px;
   padding: 2rem 1rem;
-background-color: #36454f;
+background-color: #fff;
     width: 350px;
     height: 400px;
     display: flex;
@@ -48,7 +48,7 @@ background-color: #36454f;
   
   .heading {
     font-size: 2em;
-    color: #ceacac;
+    color: #0096FF;
     font-weight: 700;
     margin: 5px 0 10px 0;
     z-index: 2;
@@ -63,10 +63,7 @@ background-color: #36454f;
     z-index: 2;
   }
   
-  .inputIcon {
-    position: absolute;
-    left: 3px;
-  }
+ 
   
   .inputField {
     width: 100%;
@@ -75,7 +72,7 @@ background-color: #36454f;
     border: none;
     border-bottom: 2px solid rgb(173, 173, 173);
     margin: 10px 0;
-    color: #fff;
+   
     font-size: 1.2em;
     font-weight: 500;
     box-sizing: border-box;
@@ -84,11 +81,10 @@ background-color: #36454f;
   
   .inputField:focus {
     outline: none;
-    border-bottom: 2px solid rgb(199, 114, 255);
+    border-bottom: 2px solid #0096FF
   }
   
   .inputField::placeholder {
-    color: #ceacac;
     font-size: 0.9em;
     font-weight: 500;
   }
@@ -96,15 +92,15 @@ background-color: #36454f;
   .my-btn {
     display: flex;
     align-items: center;
-    z-index: 1;
-    position: relative;
     width: 100%;
     border: none;
-    background-color: rgb(162, 104, 255);
+    background-color: #0096FF;
+    padding-left: 1.2rem;
+ border-radius: 5px;
     height: 30px;
     color: white;
-    font-size: .9em;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 600;
     letter-spacing: 1px;
     margin: 10px;
     cursor: pointer;
@@ -112,169 +108,65 @@ background-color: #36454f;
   }
   
   .my-btn:hover {
-    background-color: rgb(126, 84, 255);
+   opacity: 0.7;
+   
   }
   
   .forgotLink {
-    z-index: 2;
-    font-size: .7em;
-    font-weight: 500;
-    color: #ceacac;
+    
+    font-size: .8em;
+    font-weight: 600;
+    color: #6daad7;
     text-decoration: none;
     padding: 8px 15px;
     border-radius: 20px;
   }
   
+  .loader {
+    display: none;
+    --height-of-loader: 4px;
+    --loader-color: #0071e2;
+    width: 130px;
+    height: var(--height-of-loader);
+    border-radius: 30px;
+    background-color: rgba(0,0,0,0.2);
+    position: relative;
+  }
   
+  .loader::before {
+    content: "";
+    position: absolute;
+    background: var(--loader-color);
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    border-radius: 30px;
+    animation: moving 1s ease-in-out infinite;
+    ;
+  }
+  
+  @keyframes moving {
+    50% {
+      width: 100%;
+    }
+  
+    100% {
+      width: 0;
+      right: 0;
+      left: unset;
+    }
+  }
+
+
+
   /* index.html file */
 
-  .my-card{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-
-  }
-
-  /* profile Sec */
-
-  .main .profile-top{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-  }
-  .main .profile-top >h3{
-font-size: 22px;
-    font-weight: 700;
-  }
-
-  
-
-  .user-picture>img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50px;
-}
-
-.user-picture {
-    width: 100px;
-    margin: 0px auto;
-    position: relative;
-}
-
-.camera-icon {
-    background-color: #fff;
-    width: 25px;
-    height: 25px;
-    border-radius: 12.5px;
-    position: absolute;
-    bottom: 10px;
-    right: -5px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    cursor: pointer;
-}
-
-
-/* chat Section */
-
-.chat-section .left-contionor{
-  width: 400px;
-  height: 100vh;
-  background-color: rgb(46, 53, 53);
-}
-
-
- 
-
-
-@media only screen and (max-width: 400px) {
-
-  .chat-section .left-contionor{
-    width: 100%;
-  }
-
-  .message-sec li{
-    width: 100%;
-  
-  }
-}
-
-
-
-
- .top-L{
- display: flex;
- justify-content: space-between;
- align-items: center;
- padding: 1.3rem;
-  
-}
- .top-L >img{
-  margin-left: 1rem;
-  width: 90px;
-  border-radius: 50%;
- 
-}
-
-
-
-
-.container-input {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-
-.input {
-  width: 90%;
-  padding: 10px 0px 10px 40px;
-  border-radius: 9999px;
-  border: solid 1px #333;
-  transition: all .2s ease-in-out;
-  outline: none;
-  opacity: 0.8;
-}
-
-.container-input svg {
-  position: absolute;
-  top: 50%;
-  left: 9%;
-  transform: translate(0, -50%);
-}
-
-.input:focus {
-  opacity: 1;
-}
-
-.message-sec{
-  width: 100%;
-}
 
 
 
 
 
 
-.message-sec li {
-  display: flex;
-  justify-content: space-between;
-   padding: 1rem;
- 
- }
- 
- 
 
-
-.message-sec li >div{
- display: flex;
-  padding: 1rem;
-
-}
-
-/* From uiverse.io by @satyamchaudharydev */
-/* removing default style of button */
-
+/* 
