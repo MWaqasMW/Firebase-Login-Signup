@@ -131,7 +131,9 @@ background-color: #fff;
     border-radius: 30px;
     background-color: rgba(0,0,0,0.2);
     position: relative;
-    margin-top: 0.5rem;
+   margin-top: 0.5rem;
+
+    
   }
   
   .loader::before {
@@ -144,7 +146,7 @@ background-color: #fff;
     height: 100%;
     border-radius: 30px;
     animation: moving 1s ease-in-out infinite;
-    ;
+    
   }
   
   @keyframes moving {
@@ -163,259 +165,11 @@ background-color: #fff;
 
   /* index.html file */
 
-  .my-card{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-
-  }
-
-  /* profile Sec */
-
-  .main .profile-top{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-  }
-  .main .profile-top >h3{
-font-size: 22px;
-    font-weight: 700;
-  }
-
-  
-
-  .user-picture>img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50px;
-}
-
-.user-picture {
-    width: 100px;
-    margin: 0px auto;
-    position: relative;
-}
-
-.camera-icon {
-    background-color: #fff;
-    width: 25px;
-    height: 25px;
-    border-radius: 12.5px;
-    position: absolute;
-    bottom: 10px;
-    right: -5px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    cursor: pointer;
-}
-
-
-/* chat Section */
-
-.chat-section{
-  display: flex;
-  font-weight: 60;
-}
-.chat-section .right-contionor  .top-L{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.3rem;
-  height: auto;
-}
-.chat-section .right-contionor{
-  width: 300px;
-  height: auto;
-}
-
-.chat-section .left-contionor {
-  width: 500px;
-    height: auto;
-    background-color:#667682;
-   
-}
-
-@media only screen and (max-width: 780px){
-
-  .chat-section{
-    display: block;
-  }
-
-  .chat-section  .right-contionor{
-    width: 100%;
-    display: block;
-  }
-
-  .chat-section .left-contionor {
-    
-    width: 100%;
-    display: block;
-
-  }
-}
- 
-@media only screen and (max-width: 340px){
-
-
-  body{
-    font-size: 12px;
-  }
-}
-
-/* @media only screen and (max-width: 400px) {
-
-  .chat-section .left-contionor{
-    width: 100%;
-  }
-
-  .message-sec li{
-    width: 100%;
-  
-  }
-} */
-
-
-
-
- .top-L{
- display: flex;
- justify-content: space-between;
- align-items: center;
- padding: 1.3rem;
-  
-}
- .top-L >img{
-  margin-left: 1rem;
-  width: 90px;
-  border-radius: 50%;
- 
-}
-
-
-
-
-.container-input {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-
-.input {
-  width: 90%;
-  padding: 10px 0px 10px 40px;
-  border-radius: 9999px;
-  border: solid 1px #333;
-  transition: all .2s ease-in-out;
-  outline: none;
-  opacity: 0.8;
-}
-
-.container-input svg {
-  position: absolute;
-  top: 50%;
-  left: 9%;
-  transform: translate(0, -50%);
-}
-
-.input:focus {
-  opacity: 1;
-}
-
-.message-sec{
-  width: 100%;
-}
 
 
 
 
 
 
-.message-sec li {
-  display: flex;
-  justify-content: space-between;
-   padding: 1rem;
- 
- }
- 
- 
 
-
-.message-sec li >div{
- display: flex;
-align-items: center;
-  padding: 1rem;
-
-}
-
-.right-containor{
-width: 100%;
-height: auto;
-padding-bottom: 0.3rem;
-background-color: #beb8b8;
-}
-.profile-opt i{
-  padding: 0.7rem;
-  cursor: pointer;
-}
-.profile-opt i:hover{
-  color: black;
-}
-
-.right-containor >hr{
-  padding: 1rem;
-  margin: 1rem;
-  color: #333;
-}
-
-
-.chat-containor{
-  box-shadow: rgba(17, 17, 26, 0.08) 0px 4px 16px, rgba(17, 17, 26, 0.09) 0px 8px 32px;
-  
-  width: 95%;
-  height: 60vh;
-  overflow-y: auto;
-  overflow-x: 0;
-  padding: 1rem;
-  margin:0 auto;
-  
-}
-
-.message-box {
-  width: 100%;
- 
-  padding: 1rem;
-  color: #667682;
-  border-radius: 5px;
-}
-.message-box .msg{
-  width: 45%;
-  background-color: #c7e3f9;
-  padding: 1rem;
-  margin-top: 0.8rem;
-  border-radius: 10px;
-}
-.message-box .msg1{
-  width: 45%;
-  background-color: #6daad7;
-  padding: 1rem;
-  border-radius: 10px;
-  margin-left: auto;
-margin-top: 0.8rem;
-}
-.right-message {
- 
-  color: #141414;
-  margin-left: auto;
-
-}
-
-.msg-sent-sec{
-  margin: 3rem auto;
-  display: flex;
-  justify-content: center;
-}
-
+/* 
